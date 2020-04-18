@@ -68,3 +68,27 @@ void searchByName(Product *p, int count){
 		printf("==> 이름에 \"%s\" 를 포함하는 제품은 없습니다.\n", searchName);
 	}
 }
+
+void searchByPrice(Product *p, int count){
+	int priceCount = 0;
+	int maxPrice = 0;
+	int minPrice = 0;
+	printf("[가격으로 제품검색]\n");
+	printf("최소가격입력: ");
+	scanf("%d", &minPrice);
+	printf("최대가격입력: ");
+	scanf("%d", &maxPrice);
+	
+	printf("\n[%d원 ~ %d원 사이의 제품목록]\n", minPrice, maxPrice);
+	printf("================================\n");
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1 && p[i].weight == -1)continue;
+		if(maxPrice >= p[i].price && minPrice <= p[i].price){
+			readProduct2(p[i]);
+			priceCount++;
+		}
+	}
+	if(priceCount == 0){
+		printf("==> 찾는 제품이 없습니다.\n");
+	}
+}
