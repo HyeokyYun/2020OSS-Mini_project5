@@ -123,3 +123,27 @@ void searchByStars(Product *p, int count){
 		printf("==> 평점이 [%d점]보다 높은 제품은 없습니다.\n", searchStars);
 	}
 }
+
+void searchByWeight(Product *p, int count){
+	float maxWeight = 0;
+	float minWeight = 0;
+	int weightCount = 0;
+	printf("[중량으로 제품검색]\n");
+	printf("최소중량입력: ");
+	scanf("%f", &minWeight);
+	printf("최대중량입력: ");
+	scanf("%f", &maxWeight);
+	printf("\n==[%.1fg ~ %.1fg 사이의 제품 목록]==\n",minWeight, maxWeight);
+	printf("================================\n");
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1 && p[i].weight == -1)continue;
+		if(maxWeight >= p[i].weight && minWeight<= p[i].weight){
+			
+			readProduct2(p[i]);
+			weightCount++;
+		}
+	}
+	if(weightCount == 0){
+		printf("==> 찾는 제품이 없습니다.\n");
+	}
+}
