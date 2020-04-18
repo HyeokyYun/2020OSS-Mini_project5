@@ -78,4 +78,36 @@ int programMenu(){
 			  printf("    제품정보를 등록하세요.\n");
 		  }
 	  }
-
+	  else if(choice == 6){
+		  while(1){
+			if(count > 0){
+				searchChoice = searchMenu();
+				if(searchChoice == 0){
+					printf("검색기능을 종료합니다.\n");
+					break;
+				}
+				else if(searchChoice == 1){
+					searchByName(plist, curcount);
+				}
+				else if(searchChoice == 2){
+					searchByPrice(plist, curcount);
+				}
+				else if(searchChoice == 3){
+					searchByStars(plist, curcount);
+				}
+				else if(searchChoice == 4){
+					searchByWeight(plist, curcount);
+				}
+				else printf("==> [%d]에 해당하는 메뉴는 없습니다.\n==> 다시 입력하세요.\n", searchChoice);
+			}
+			else{
+				printf("==> 검색할 제품정보가 없습니다.\n");
+				printf("==> 제품정보를 등록하세요.\n");
+				break;
+			}
+		  }
+	  }
+	  else printf("==> [%d]에 해당하는 메뉴는 없습니다. \n==> 다시 입력하세요.\n", choice);
+  }
+  printf("==> 프로그램을 종료합니다.\n");
+}
