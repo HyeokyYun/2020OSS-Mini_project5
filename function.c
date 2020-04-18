@@ -92,3 +92,34 @@ void searchByPrice(Product *p, int count){
 		printf("==> 찾는 제품이 없습니다.\n");
 	}
 }
+
+void searchByStars(Product *p, int count){
+	int searchStars = 0;
+	int starCount = 0;
+
+	while(1){
+		printf("[평점으로 제품검색]\n");
+		printf("최소평점입력: ");
+		scanf("%d", &searchStars);
+		if(searchStars > 5 || searchStars < 1){
+			printf("평점은 1~5까지 입니다. 다시 입력해주세요.\n\n");
+		}
+		else {
+			printf("\n==[평점이 %d점보다 높은 제품]==\n",searchStars);
+			printf("================================\n");
+			break;
+		}
+	}
+	
+	for(int i = 0; i < count; i++){
+		if(p[i].price == -1 && p[i].weight == -1)continue;
+		if(searchStars <= p[i].stars){
+			
+			readProduct2(p[i]);
+			starCount++;
+		}
+	}
+	if(starCount == 0){
+		printf("==> 평점이 [%d점]보다 높은 제품은 없습니다.\n", searchStars);
+	}
+}
