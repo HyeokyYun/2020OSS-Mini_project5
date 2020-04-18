@@ -30,7 +30,7 @@ int main(void) {
   while(1){
 	  choice = programMenu();
 	  #ifdef DEBUG
-	  	printf("Debug : %s %s %s %d. call the function programMenu()\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  	printf("Debug : %s. call the function programMenu()\n\n", __DATE__);
 	  #endif
 
 	  if(choice == 0)break;
