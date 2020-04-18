@@ -18,6 +18,14 @@ int programMenu(){
 	return menuNum;
 }
 
+int main(void) {
+  int choice;
+  int count = 0;
+  Product plist[100];
+  int curcount = 0;
+  int searchChoice;
+  count = loadData(plist);
+  curcount = count;
   while(1){
 	  choice = programMenu();
 	  if(choice == 0)break;

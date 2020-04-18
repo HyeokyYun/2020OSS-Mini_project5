@@ -1,4 +1,4 @@
-nclude "manager.h"
+#include "manager.h"
 
 void listProduct(Product *p, int count){
 	printf("\n등록번호|     제품이름     |  제품중량(g)  |  제품가격(원)  |   10g/원   |  제품평점\n");
