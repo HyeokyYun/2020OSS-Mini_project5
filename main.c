@@ -26,10 +26,18 @@ int main(void) {
   int searchChoice;
   count = loadData(plist);
   curcount = count;
+
   while(1){
 	  choice = programMenu();
+	  #ifdef DEBUG
+	  	printf("Debug : %s %s %s %d. call the function programMenu()\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  #endif
+
 	  if(choice == 0)break;
 	  else if(choice == 1){
+	  #ifdef DEBUG
+	  	printf("Debug : %s %s %s %d. call the function listProduct(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  #endif
 		  if(count > 0){
 			  listProduct(plist, curcount);
 		  }
@@ -39,16 +47,25 @@ int main(void) {
 		  }
 	  }
 	  else if(choice == 2){
+		  #ifdef DEBUG
+		      printf("Debug : %s %s %s %d. call the function addProduct(&plist[curcount++])\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+		  #endif
 		  addProduct(&plist[curcount++]);
 		  count ++;
 	  }
 	  else if(choice == 3){
 		  if(count > 0){
+		    #ifdef DEBUG
+	  			printf("Debug : %s %s %s %d. call the function selectDataNo(&plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  		#endif
 			int select = selectDataNo(plist, curcount);
 			if(select == 0){
 				printf("==> 수정이 취소됩니다.\n");
 				continue;
 			}
+			#ifdef DEBUG
+	  			printf("Debug : %s %s %s %d. call the function updateProduct(&plist[select - 1])\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  		#endif
 			updateProduct(&plist[select - 1]);
 		  }
 		  else {
@@ -59,6 +76,9 @@ int main(void) {
 	  else if (choice == 4){
 		  char deleteok;
 		  if(count > 0){
+			#ifdef DEBUG
+	  			printf("Debug : %s %s %s %d. call the function selectDataNo(&plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  		#endif
 			int select = selectDataNo(plist, curcount);
 			if(select == 0){
 				printf("==> 삭제가 취소됩니다.\n");
@@ -67,8 +87,11 @@ int main(void) {
 			printf("데이터를 삭제합니다. (Y/y)");
 		  	scanf("%s", &deleteok);
 		  	if(deleteok == 'y' || deleteok == 'Y'){
-			deleteProduct(&plist[select - 1]);
-			count--;
+				#ifdef DEBUG
+					printf("Debug : %s %s %s %d. call the function deleteProduct(&plist[select - 1])\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+				#endif
+				deleteProduct(&plist[select - 1]);
+				count--;
 		  	}
 		  	else printf("==> 제품삭제를 취소합니다.\n");
 	  	  }
@@ -79,6 +102,9 @@ int main(void) {
   	  }
 	  else if(choice == 5){
 		  if(count > 0){
+			  #ifdef DEBUG
+					printf("Debug : %s %s %s %d. call the function saveData(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+			  #endif
 			  saveData(plist, curcount);
 		  }
 		  else {
@@ -86,36 +112,50 @@ int main(void) {
 			  printf("    제품정보를 등록하세요.\n");
 		  }
 	  }
-	  else if(choice == 6){
+	  else if( choice == 6){
 		  while(1){
-			if(count > 0){
-				searchChoice = searchMenu();
-				if(searchChoice == 0){
-					printf("검색기능을 종료합니다.\n");
-					break;
-				}
-				else if(searchChoice == 1){
-					searchByName(plist, curcount);
-				}
-				else if(searchChoice == 2){
-					searchByPrice(plist, curcount);
-				}
-				else if(searchChoice == 3){
-					searchByStars(plist, curcount);
-				}
-				else if(searchChoice == 4){
-					searchByWeight(plist, curcount);
-				}
-				else printf("==> [%d]에 해당하는 메뉴는 없습니다.\n==> 다시 입력하세요.\n", searchChoice);
-			}
-			else{
-				printf("==> 검색할 제품정보가 없습니다.\n");
-				printf("==> 제품정보를 등록하세요.\n");
-				break;
-			}
+			  if(count > 0){
+				  #ifdef DEBUG
+					printf("Debug : %s %s %s %d. call the function searchMenu()\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+			  	  #endif
+				  searchChoice = searchMenu();
+				  if(searchChoice == 0){
+					  printf("검색기능을 종료합니다.\n");
+					  break;
+				  }
+				  else if(searchChoice == 1){
+					  #ifdef DEBUG
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+			  	  	  #endif
+					  searchByName(plist,curcount);
+				  }
+				  else if(searchChoice == 2){
+					  #ifdef DEBUG
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+			  	  	  #endif
+					  searchByPrice(plist,curcount);
+				  }
+				  else if(searchChoice == 3){
+					  #ifdef DEBUG
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+			  	  	  #endif
+					  searchByStars(plist,curcount);
+				  }
+				  else if(searchChoice == 4){
+					  #ifdef DEBUG
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+			  	  	  #endif
+					  searchByWeight(plist,curcount);
+				  }
+				  else printf("==> [%d]에 해당하는 메뉴는 없습니다.\n==>다시 입력하세요.\n", searchChoice);
+			  }
+			  else{
+				  printf("==> 검색할 제품정보가 없습니다.\n");
+				  printf("==> 제품정보를 등록하세요.\n");
+			  }
 		  }
 	  }
-	  else printf("==> [%d]에 해당하는 메뉴는 없습니다. \n==> 다시 입력하세요.\n", choice);
+	  else printf("==> [%d]에 해당하는 메뉴는 없습니다.\n==>다시 입력하세요.\n", choice);
   }
   printf("==> 프로그램을 종료합니다.\n");
 }
