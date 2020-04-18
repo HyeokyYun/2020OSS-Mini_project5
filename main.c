@@ -30,13 +30,13 @@ int main(void) {
   while(1){
 	  choice = programMenu();
 	  #ifdef DEBUG
-	  	printf("Debug : %s. call the function programMenu()\n\n", __DATE__);
+	  	printf("Debug : %s %s %s %d. call the function programMenu()\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 	  #endif
 
 	  if(choice == 0)break;
 	  else if(choice == 1){
 	  #ifdef DEBUG
-	  	printf("Debug : %s %s %s %d. call the function listProduct(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  	printf("Debug : %s %s %s %d. call the function listProduct(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 	  #endif
 		  if(count > 0){
 			  listProduct(plist, curcount);
@@ -48,7 +48,7 @@ int main(void) {
 	  }
 	  else if(choice == 2){
 		  #ifdef DEBUG
-		      printf("Debug : %s %s %s %d. call the function addProduct(&plist[curcount++])\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+		      printf("Debug : %s %s %s %d. call the function addProduct(&plist[curcount++])\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 		  #endif
 		  addProduct(&plist[curcount++]);
 		  count ++;
@@ -56,7 +56,7 @@ int main(void) {
 	  else if(choice == 3){
 		  if(count > 0){
 		    #ifdef DEBUG
-	  			printf("Debug : %s %s %s %d. call the function selectDataNo(&plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  			printf("Debug : %s %s %s %d. call the function selectDataNo(&plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 	  		#endif
 			int select = selectDataNo(plist, curcount);
 			if(select == 0){
@@ -64,7 +64,7 @@ int main(void) {
 				continue;
 			}
 			#ifdef DEBUG
-	  			printf("Debug : %s %s %s %d. call the function updateProduct(&plist[select - 1])\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  			printf("Debug : %s %s %s %d. call the function updateProduct(&plist[select - 1])\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 	  		#endif
 			updateProduct(&plist[select - 1]);
 		  }
@@ -77,7 +77,7 @@ int main(void) {
 		  char deleteok;
 		  if(count > 0){
 			#ifdef DEBUG
-	  			printf("Debug : %s %s %s %d. call the function selectDataNo(&plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+	  			printf("Debug : %s %s %s %d. call the function selectDataNo(&plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 	  		#endif
 			int select = selectDataNo(plist, curcount);
 			if(select == 0){
@@ -88,7 +88,7 @@ int main(void) {
 		  	scanf("%s", &deleteok);
 		  	if(deleteok == 'y' || deleteok == 'Y'){
 				#ifdef DEBUG
-					printf("Debug : %s %s %s %d. call the function deleteProduct(&plist[select - 1])\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+					printf("Debug : %s %s %s %d. call the function deleteProduct(&plist[select - 1])\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 				#endif
 				deleteProduct(&plist[select - 1]);
 				count--;
@@ -103,7 +103,7 @@ int main(void) {
 	  else if(choice == 5){
 		  if(count > 0){
 			  #ifdef DEBUG
-					printf("Debug : %s %s %s %d. call the function saveData(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+					printf("Debug : %s %s %s %d. call the function saveData(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 			  #endif
 			  saveData(plist, curcount);
 		  }
@@ -116,7 +116,7 @@ int main(void) {
 		  while(1){
 			  if(count > 0){
 				  #ifdef DEBUG
-					printf("Debug : %s %s %s %d. call the function searchMenu()\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+					printf("Debug : %s %s %s %d. call the function searchMenu()\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 			  	  #endif
 				  searchChoice = searchMenu();
 				  if(searchChoice == 0){
@@ -125,25 +125,25 @@ int main(void) {
 				  }
 				  else if(searchChoice == 1){
 					  #ifdef DEBUG
-						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 			  	  	  #endif
 					  searchByName(plist,curcount);
 				  }
 				  else if(searchChoice == 2){
 					  #ifdef DEBUG
-						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 			  	  	  #endif
 					  searchByPrice(plist,curcount);
 				  }
 				  else if(searchChoice == 3){
 					  #ifdef DEBUG
-						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 			  	  	  #endif
 					  searchByStars(plist,curcount);
 				  }
 				  else if(searchChoice == 4){
 					  #ifdef DEBUG
-						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__, choice);
+						printf("Debug : %s %s %s %d. call the function searchByName(plist, curcount)\n\n", __DATE__, __TIME__, __FILE__, __LINE__);
 			  	  	  #endif
 					  searchByWeight(plist,curcount);
 				  }
