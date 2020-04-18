@@ -69,3 +69,13 @@ int programMenu(){
 			printf("==> 제품정보를 등록하세요.\n");
 		  }
   	  }
+	  else if(choice == 5){
+		  if(count > 0){
+			  saveData(plist, curcount);
+		  }
+		  else {
+			  printf("==> 저장할 제품정보가 없습니다.\n");
+			  printf("    제품정보를 등록하세요.\n");
+		  }
+	  }
+
