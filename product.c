@@ -22,7 +22,7 @@ int addProduct(Product *p){
 void readProduct(Product p){
 	if(p.price == -1 && p.weight == -1)return;
 	p.avgweight = (p.price/p.weight)*10;
-	printf("     %-20s   %5.1f g        %-5d 원       %-5d 원       %-2d 점\n", p.name, p.weight, p.price, p.avgweight, p.stars);
+	printf("     %-20s   %5.1f g        %5d 원       %5d 원       %-2d 점\n", p.name, p.weight, p.price, p.avgweight, p.stars);
 }
 
 int updateProduct(Product *p){
