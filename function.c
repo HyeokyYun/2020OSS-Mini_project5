@@ -30,6 +30,7 @@ int loadData(Product *p){
 	return count;
 }
 
+
 int searchMenu(){
 	int searchNum;
 	printf("\n===[제품검색메뉴]===\n");
