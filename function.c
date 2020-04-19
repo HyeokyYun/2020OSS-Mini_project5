@@ -59,7 +59,7 @@ void searchByName(Product *p, int count){
 	for(int i = 0; i < count; i++){
 		if(p[i].price == -1 && p[i].weight == -1)continue;
 		if(strstr(p[i].name, searchName)){
-			printf("이름에 \"%s\" 를 포함하는 제품(들)입니다.\n", searchName);
+			printf("이름에 \"%s\" 를 포함하는 제품입니다.\n", searchName);
 			
 			readProduct2(p[i]);
 			nameCount++;
