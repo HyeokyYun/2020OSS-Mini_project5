@@ -1,0 +1,7 @@
+45.0 1500 0 4 gimgimg
+56.0 4500 0 4 chucmc
+55.0 1500 0 1 loaker
+45.0 5966 0 5 kimkim
+45.0 5900 0 1 kimkim
+5.0 800 0 1 fore
+2.0 15000 0 1 glass
